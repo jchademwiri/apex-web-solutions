@@ -1,0 +1,182 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/pricing', label: 'Pricing' },
+    { href: '/contact', label: 'Contact' },
+];
+
+const isActive = (path: string) => {
+    // Normalize pathnames by removing trailing slashes
+    const normalizedPathname =
+        pathname.endsWith('/') && pathname !== '/'
+            ? pathname.slice(0, -1)
+            : pathname;
+    const normalizedPath =
+        path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+
+    if (normalizedPath === '/') {
+        return normalizedPathname === '/';
+    }
+    return (
+        normalizedPathname === normalizedPath ||
+        normalizedPathname.startsWith(normalizedPath + '/')
+    );
+};
+
+const linkClass = (path: string) => {
+    const active = isActive(path);
+    return `text-sm font-medium transition-colors ${
+        active
+            ? 'text-primary dark:text-primary-accent font-semibold'
+            : 'text-foreground/70 hover:text-primary dark:hover:text-primary-accent'
+    }`;
+};
+---
+
+<header
+    class='sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md'
+>
+    <div
+        class='container mx-auto flex h-[4rem] items-center justify-between px-4 relative'
+    >
+        <a href='/' class='flex items-center gap-2'>
+            <div
+                class='flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-xl font-bold shadow-md'
+            >
+                A
+            </div>
+            <span
+                class='hidden text-xl font-bold tracking-tight text-foreground md:block'
+            >
+                Apex <span class='text-primary dark:text-primary-accent'
+                    >Web Solutions</span
+                >
+            </span>
+        </a>
+
+        <div class='flex items-center gap-4'>
+            <!-- Desktop Nav -->
+            <nav class='hidden md:flex items-center gap-6'>
+                {
+                    navLinks.map((link) => (
+                        <a href={link.href} class={linkClass(link.href)}>
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </nav>
+
+            <div class='h-6 w-px bg-border hidden md:block'></div>
+
+            <ThemeToggle />
+
+            <!-- Hamburger Button -->
+            <button
+                id='mobile-menu-btn'
+                class='md:hidden p-2 text-foreground/70 hover:bg-accent rounded-lg transition-colors'
+                aria-label='Toggle mobile menu'
+                aria-expanded='false'
+                aria-controls='mobile-menu'
+            >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='1.5'
+                    stroke='currentColor'
+                    class='w-6 h-6 transition-transform duration-300'
+                    aria-hidden='true'
+                >
+                    <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+            id='mobile-menu'
+            class='absolute right-0 top-[4.5rem] w-48 origin-top-right rounded-xl border border-border bg-popover/90 p-2 shadow-lg backdrop-blur-xl transition-all duration-300 ease-in-out opacity-0 scale-95 invisible md:hidden'
+        >
+            <nav class='flex flex-col space-y-1'>
+                {
+                    navLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            class={`${linkClass(link.href)} block rounded-lg px-4 py-2 hover:bg-accent`}
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script is:inline>
+    // Prevent duplicate event listeners on navigation
+    if (!window.__headerInitialized) {
+        window.__headerInitialized = true;
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const menuLinks = menu?.querySelectorAll('a');
+
+        const closeMenu = () => {
+            if (btn && menu) {
+                btn.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('opacity-100', 'scale-100', 'visible');
+                menu.classList.add('opacity-0', 'scale-95', 'invisible');
+            }
+        };
+
+        if (btn && menu) {
+            // Toggle menu on button click
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+                btn.setAttribute('aria-expanded', (!isExpanded).toString());
+
+                if (!isExpanded) {
+                    // Open
+                    menu.classList.remove('opacity-0', 'scale-95', 'invisible');
+                    menu.classList.add('opacity-100', 'scale-100', 'visible');
+                } else {
+                    // Close
+                    closeMenu();
+                }
+            });
+
+            // Close menu when clicking a link
+            menuLinks?.forEach((link) => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (
+                    e.key === 'Escape' &&
+                    btn.getAttribute('aria-expanded') === 'true'
+                ) {
+                    closeMenu();
+                    btn.focus(); // Return focus to button
+                }
+            });
+        }
+    }
+</script>
