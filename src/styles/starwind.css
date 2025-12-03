@@ -11,6 +11,7 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--starwind-accordion-content-height);
     }
@@ -20,6 +21,7 @@
     from {
       height: var(--starwind-accordion-content-height);
     }
+
     to {
       height: 0;
     }
@@ -65,18 +67,20 @@
 }
 
 :root {
-  --background: var(--color-white);
-  --foreground: var(--color-neutral-950);
-  --card: var(--color-white);
-  --card-foreground: var(--color-neutral-950);
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-neutral-950);
+  /* Softer, warmer background - reduces eye strain */
+  --background: var(--color-neutral-50);
+  --foreground: var(--color-neutral-900);
+  --card: var(--color-neutral-50);
+  --card-foreground: var(--color-neutral-900);
+  --popover: var(--color-neutral-50);
+  --popover-foreground: var(--color-neutral-900);
   --primary: var(--color-blue-700);
   --primary-foreground: var(--color-neutral-50);
   --primary-accent: var(--color-blue-700);
   --secondary: var(--color-fuchsia-700);
   --secondary-foreground: var(--color-neutral-50);
   --secondary-accent: var(--color-fuchsia-700);
+  /* Slightly darker muted for better contrast without harshness */
   --muted: var(--color-neutral-100);
   --muted-foreground: var(--color-neutral-600);
   --accent: var(--color-neutral-100);
@@ -96,21 +100,23 @@
 }
 
 .dark {
-  --background: var(--color-neutral-950);
-  --foreground: var(--color-neutral-50);
-  --card: var(--color-neutral-900);
-  --card-foreground: var(--color-neutral-50);
-  --popover: var(--color-neutral-800);
-  --popover-foreground: var(--color-neutral-50);
+  /* Softer dark background - not pure black, easier on eyes */
+  --background: var(--color-neutral-900);
+  --foreground: var(--color-neutral-100);
+  --card: var(--color-neutral-850);
+  --card-foreground: var(--color-neutral-100);
+  --popover: var(--color-neutral-850);
+  --popover-foreground: var(--color-neutral-100);
   --primary: var(--color-blue-700);
   --primary-foreground: var(--color-neutral-50);
   --primary-accent: var(--color-blue-400);
   --secondary: var(--color-fuchsia-700);
   --secondary-foreground: var(--color-neutral-50);
   --secondary-accent: var(--color-fuchsia-400);
+  /* Warmer, less harsh dark gray */
   --muted: var(--color-neutral-800);
   --muted-foreground: var(--color-neutral-400);
-  --accent: var(--color-neutral-700);
+  --accent: var(--color-neutral-750);
   --accent-foreground: var(--color-neutral-100);
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
@@ -129,9 +135,11 @@
   * {
     @apply border-border outline-outline/50;
   }
+
   body {
     @apply bg-background text-foreground scheme-light dark:scheme-dark;
   }
+
   button {
     @apply cursor-pointer;
   }
