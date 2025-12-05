@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "client": "astro dev",
+    "build": "astro build && wrangler build",
     "build:client": "astro build",
     "preview": "astro preview",
     "astro": "astro",
