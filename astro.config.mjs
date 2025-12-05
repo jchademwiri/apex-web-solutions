@@ -11,11 +11,11 @@ export default defineConfig({
   srcDir: "./src/client",
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      proxy: {
-        "/api": "http://localhost:8787",
-      },
-    },
+    // server: {
+    //   proxy: {
+    //     "/api": "http://localhost:8787",
+    //   },
+    // },
   },
 
   adapter: cloudflare({
