@@ -43,6 +43,7 @@
     "wrangler": "^4.53.0"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^2.1.4",
     "@types/node": "^24.10.1",
     "@typescript-eslint/parser": "^8.48.1",
     "better-sqlite3": "^12.5.0",
