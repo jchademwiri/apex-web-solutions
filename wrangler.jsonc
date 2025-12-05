@@ -26,12 +26,6 @@
       }
     },
     "production": {
-      // "routes": [
-      //   {
-      //     "pattern": "apexwebsolutions.co.za",
-      //     "custom_domain": true
-      //   }
-      // ],
       "vars": {
         "ENVIRONMENT": "production",
         "d1_databases": [
@@ -45,6 +39,12 @@
       }
     }
   }
+  // "routes": [
+  //   {
+  //     "pattern": "apexwebsolutions.co.za",
+  //     "custom_domain": true
+  //   }
+  // ],
 
   // ADD THIS BLOCK
   // "r2_buckets": [
