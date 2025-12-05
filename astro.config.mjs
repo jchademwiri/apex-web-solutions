@@ -9,13 +9,14 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   srcDir: "./src/client",
+  output: "server", 
   vite: {
     plugins: [tailwindcss()],
-    // server: {
-    //   proxy: {
-    //     "/api": "http://localhost:8787",
-    //   },
-    // },
+    server: {
+      proxy: {
+        "/api": "http://localhost:8787",
+      },
+    },
   },
 
   adapter: cloudflare({

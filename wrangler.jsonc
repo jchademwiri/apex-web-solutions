@@ -1,24 +1,16 @@
 {
-	"main": "src/server/index.ts",
 	"name": "apex-web-solutions",
-	"compatibility_date": "2025-12-05",
-	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
-	],
-	// "assets": {
-	//   "binding": "ASSETS",
-	//   "directory": "./dist"
-	// },
-	"observability": {
-		"enabled": true
-	},
-	"d1_databases": [
-		{
-			"binding": "aws_db",
-			"database_name": "aws_db",
-			"database_id": "361011d0-6246-4e0d-baf6-8fe11a94341a",
-			"remote": true
-		}
-	]
+	"main": "src/server/index.ts" ,
+  "compatibility_date": "2025-12-05",
+  "compatibility_flags": [ "nodejs_compat", "global_fetch_strictly_public" ],
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "aws_db",
+      "database_name": "aws_db",
+      "database_id": "361011d0-6246-4e0d-baf6-8fe11a94341a",
+      "remote": true
+    }
+  ]
+  // DELETE or COMMENT OUT the "main" line below
 }
