@@ -9,7 +9,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   srcDir: "./src/client",
-  // output: "server", 
+  // output: "server",
   vite: {
     plugins: [tailwindcss()],
     server: {

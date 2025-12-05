@@ -1,7 +1,8 @@
-import { Hono } from 'hono'
-const app = new Hono().basePath('/api')
+import { Hono } from "hono";
+import { accessAuth } from "@server/middleware/auth";
 
+const app = new Hono().basePath("/api");
 
-app.get('/', (c) => c.json('Hello from Apex Web Solutions! 🚀'))
-app.get('/health', (c) => c.json('Healthy! 🔥'))
-export default app
+app.use(accessAuth).get("/health", (c) => c.json("Healthy! 🔥"));
+
+export default app;
