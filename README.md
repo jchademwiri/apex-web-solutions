@@ -4,13 +4,13 @@ The official website for Apex Web Solutions, built to be high-performance, cost-
 
 ## 🛠️ Tech Stack
 
-* **Framework:** [Astro](https://astro.build) (Static Site Generation + Server Side Rendering)
-* **Backend API:** [Hono](https://hono.dev) (Mounted via Astro Middleware)
-* **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/) (SQLite at the Edge)
-* **ORM:** [Drizzle ORM](https://orm.drizzle.team) (Type-safe database interactions)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com)
-* **UI Components:** [Starwind UI](https://starwind.dev) (Astro-focused, accessible components)
-* **Deployment:** Cloudflare Pages
+- **Framework:** [Astro](https://astro.build) (Static Site Generation + Server Side Rendering)
+- **Backend API:** [Hono](https://hono.dev) (Mounted via Astro Middleware)
+- **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/) (SQLite at the Edge)
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team) (Type-safe database interactions)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **UI Components:** [Starwind UI](https://starwind.dev) (Astro-focused, accessible components)
+- **Deployment:** Cloudflare Pages
 
 ## 📂 Project Structure
 
@@ -28,3 +28,4 @@ The official website for Apex Web Solutions, built to be high-performance, cost-
 ├── drizzle.config.ts   # Configuration for Drizzle Kit
 ├── wrangler.toml       # Cloudflare Pages & D1 Configuration
 └── package.json
+```
