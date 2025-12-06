@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "client": "astro dev",
-    "build": "astro build && wrangler build",
+    "build": "pnpm build:client && wrangler deploy --env staging",
     "build:client": "astro build",
     "preview": "astro preview",
     "astro": "astro",
