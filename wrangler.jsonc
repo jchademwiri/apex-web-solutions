@@ -1,5 +1,5 @@
 {
-  "name": "apex-web-solutions",
+  "name": "apex-web-solutions-staging",
   "compatibility_date": "2025-12-05",
   "main": "src/server/index.ts",
   "assets": {
