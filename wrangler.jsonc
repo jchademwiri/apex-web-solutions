@@ -14,7 +14,7 @@
     {
       "binding": "DB",
       "database_name": "aws_local_db",
-      "database_id": "local123456789"
+      "database_id": "f2ea61a7-ac8f-4d73-bf5b-e4fc7d63b1ea"
     }
   ],
   "env": {
