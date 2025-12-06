@@ -1,0 +1,185 @@
+---
+import {
+  Mail,
+  Monitor,
+  Server,
+  Globe,
+  ArrowRight,
+  CheckCircle2,
+  Moon,
+  Sun,
+} from 'lucide-astro';
+// import WaitlistForm from '@/components/forms/WaitlistForm.astro';
+---
+
+<div
+  class='relative flex min-h-screen flex-col items-center justify-center bg-slate-50 p-4 font-sans text-slate-800 transition-colors duration-300 sm:p-6 dark:bg-slate-950 dark:text-slate-200'
+>
+  <!-- Dark Mode Toggle (Top Right) -->
+  <button
+    id='theme-toggle'
+    aria-label='Toggle Dark Mode'
+    class='absolute top-6 right-6 rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-colors hover:bg-slate-100 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700'
+  >
+    <Sun class='hidden h-5 w-5 dark:block' />
+    <Moon class='block h-5 w-5 dark:hidden' />
+  </button>
+
+  <main class='w-full max-w-5xl space-y-12 py-12 text-center sm:space-y-16'>
+    {/* --- Hero Section --- */}
+    <div class='animate-fade-in mx-auto max-w-3xl space-y-6'>
+      <div
+        class='mb-4 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-900'
+      >
+        <Globe class='h-8 w-8 text-blue-700 dark:text-blue-500' />
+      </div>
+
+      <h1
+        class='text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl dark:text-white'
+      >
+        Apex Web Solutions
+      </h1>
+
+      <p
+        class='mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl dark:text-slate-400'
+      >
+        We are building the ultimate platform to get your business
+        <span
+          class='rounded-lg border border-blue-100 bg-blue-50 px-2 py-0.5 font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
+          >professionally online</span
+        >
+        with custom websites and branded email.
+      </p>
+    </div>
+
+    {/* --- Waitlist Form --- */}
+    <!-- <WaitlistForm /> -->
+
+    {/* --- 3 Feature Cards --- */}
+    <div
+      class='animate-fade-in grid grid-cols-1 gap-6 text-left delay-200 md:grid-cols-3'
+    >
+      {/* Card 1: Web Design */}
+      <div
+        class='group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/20'
+      >
+        <div
+          class='mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-green-50 transition-transform duration-300 group-hover:scale-110 dark:bg-green-900/20'
+        >
+          <Monitor class='h-6 w-6 text-green-600 dark:text-green-400' />
+        </div>
+        <h3 class='mb-2 text-lg font-bold text-slate-900 dark:text-white'>
+          Modern Web Design
+        </h3>
+        <p class='text-sm leading-relaxed text-slate-600 dark:text-slate-400'>
+          Stand out with a sleek, responsive website custom-built for your
+          brand. We design sites that convert visitors into customers.
+        </p>
+      </div>
+
+      {/* Card 2: Email */}
+      <div
+        class='group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/20'
+      >
+        <div
+          class='mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-900/20'
+        >
+          <Mail class='h-6 w-6 text-blue-600 dark:text-blue-400' />
+        </div>
+        <h3 class='mb-2 text-lg font-bold text-slate-900 dark:text-white'>
+          Branded Email
+        </h3>
+        <p class='text-sm leading-relaxed text-slate-600 dark:text-slate-400'>
+          Stop using @gmail for quotes. Build trust with reliable, secure
+          hosting for <code
+            class='rounded bg-slate-100 px-1 py-0.5 text-blue-700 dark:bg-slate-800 dark:text-blue-300'
+          >
+            <a href='mailto:info@apexwebsolutions.co.za'
+              >info@apexwebsolutions.co.za</a
+            >
+          </code>.
+        </p>
+      </div>
+
+      {/* Card 3: Hosting */}
+      <div
+        class='group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/5 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/20'
+      >
+        <div
+          class='mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 transition-transform duration-300 group-hover:scale-110 dark:bg-indigo-900/20'
+        >
+          <Server class='h-6 w-6 text-indigo-600 dark:text-indigo-400' />
+        </div>
+        <h3 class='mb-2 text-lg font-bold text-slate-900 dark:text-white'>
+          Fast Hosting
+        </h3>
+        <p class='text-sm leading-relaxed text-slate-600 dark:text-slate-400'>
+          Lightning-fast local servers and 99.9% uptime. Premium hosting
+          designed specifically for growing businesses, starting at just R99/pm.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer
+    class='animate-fade-in mt-auto py-6 text-sm font-medium text-slate-400 delay-300 dark:text-slate-500'
+  >
+    &copy; {new Date().getFullYear()} Apex Web Solutions. South Africa.
+  </footer>
+</div>
+
+<script>
+  // Simple Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+
+  // Check initial theme
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  // Toggle click handler
+  themeToggle?.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
+</script>
+
+<style>
+  /* Simple Fade In Animation */
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .delay-100 {
+    animation-delay: 0.2s;
+  }
+  .delay-200 {
+    animation-delay: 0.4s;
+  }
+  .delay-300 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
