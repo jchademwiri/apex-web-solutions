@@ -8,15 +8,14 @@
   },
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "observability": { "enabled": true },
-
+  // "routes": [
+  //   {
+  //     "pattern": "dev.apexwebsolutions.co.za",
+  //     "custom_domain": true
+  //   }
+  // ],
   "env": {
     "staging": {
-      "routes": [
-        {
-          "pattern": "dev.apexwebsolutions.co.za",
-          "custom_domain": true
-        }
-      ],
       "vars": {
         "ENVIRONMENT": "staging",
         "CF_ACCESS_DOMAIN": "https://jchademwiri.cloudflareaccess.com",
@@ -32,16 +31,16 @@
       }
     },
     "production": {
-      "routes": [
-        {
-          "pattern": "apexwebsolutions.co.za",
-          "custom_domain": true
-        },
-        {
-          "pattern": "www.apexwebsolutions.co.za",
-          "custom_domain": true
-        }
-      ],
+      // "routes": [
+      //   {
+      //     "pattern": "apexwebsolutions.co.za",
+      //     "custom_domain": true
+      //   },
+      //   {
+      //     "pattern": "www.apexwebsolutions.co.za",
+      //     "custom_domain": true
+      //   }
+      // ],
       "vars": {
         "ENVIRONMENT": "production",
         "d1_databases": [
