@@ -7,66 +7,35 @@
     "binding": "ASSETS"
   },
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "observability": { "enabled": true },
-  // "routes": [
-  //   {
-  //     "pattern": "dev.apexwebsolutions.co.za",
-  //     "custom_domain": true
-  //   }
-  // ],
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "aws_local_db",
+      "database_id": "local123456789"
+    }
+  ],
   "env": {
     "staging": {
       "vars": {
         "ENVIRONMENT": "staging",
         "CF_ACCESS_DOMAIN": "https://jchademwiri.cloudflareaccess.com",
-        "POLICY_AUD": "0f2934a1a522471acd5b4050b25c8abe5706896b94cff557aba06d314ee4807c",
-        "d1_databases": [
-          {
-            "binding": "aws_db",
-            "database_name": "aws_db",
-            "database_id": "361011d0-6246-4e0d-baf6-8fe11a94341a",
-            "remote": true
-          }
-        ]
-      }
+        "POLICY_AUD": "0f2934a1a522471acd5b4050b25c8abe5706896b94cff557aba06d314ee4807c"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "aws_staging_db",
+          "database_id": "f2ea61a7-ac8f-4d73-bf5b-e4fc7d63b1ea"
+        }
+      ]
     },
     "production": {
-      // "routes": [
-      //   {
-      //     "pattern": "apexwebsolutions.co.za",
-      //     "custom_domain": true
-      //   },
-      //   {
-      //     "pattern": "www.apexwebsolutions.co.za",
-      //     "custom_domain": true
-      //   }
-      // ],
       "vars": {
-        "ENVIRONMENT": "production",
-        "d1_databases": [
-          {
-            "binding": "aws_db_prod",
-            "database_name": "aws_db_prod",
-            "database_id": "361011d0-6246-4e0d-baf6-8fe11a94341a",
-            "remote": true
-          }
-        ]
+        "ENVIRONMENT": "production"
       }
     }
   }
-  // "routes": [
-  //   {
-  //     "pattern": "apexwebsolutions.co.za",
-  //     "custom_domain": true
-  //   }
-  // ],
-
-  // ADD THIS BLOCK
-  // "r2_buckets": [
-  //   {
-  //     "binding": "MY_BUCKET",        // The name you use in your code (e.g., env.MY_BUCKET)
-  //     "bucket_name": "apexwebsolutions",   // The actual name of the bucket in Cloudflare Dashboard
-  //     "preview_bucket_name": "apexwebsolutions-dev" // Optional: A separate bucket for 'npm run dev' to avoid messing up production data
-  //   }
-  // ]
 }
